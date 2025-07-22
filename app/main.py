@@ -4,8 +4,10 @@ import dspy, openai
 
 app = FastAPI()
 
+
 class Question(BaseModel):
     question: str
+
 
 @app.post("/answer")
 async def answer(q: Question):
