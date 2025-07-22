@@ -9,5 +9,5 @@ class Question(BaseModel):
 
 @app.post("/answer")
 async def answer(q: Question):
-    # Changed response message
-    return {"answer": "this is a good question"} 
+    # Changed response message for the PR
+    return {"answer": "this is a pull request test"} 
