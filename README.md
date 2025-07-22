@@ -88,4 +88,4 @@ GitHub Actions workflows handle:
 - Building Docker image
 - (Optional) Deployment to chosen platform
 
-Note: For CI, you'll need to add the `OPENAI_API_KEY` secret to your GitHub repository. 
+Note: For CI, you'll need to add the `OPENAI_API_KEY` secret to your GitHub repository.  
