@@ -1,8 +1,20 @@
-ARG SERVICE_NAME=tutor_chat
+FROM python:3.11-slim
 
-FROM tutor-stack-base:latest
+WORKDIR /app
 
-ENV SERVICE_NAME=${SERVICE_NAME}
-ENV PORT=8000
+# Install system dependencies
+RUN apt-get update && apt-get install -y procps curl
 
+# Copy requirements files
+COPY requirements*.txt ./
+
+# Install dependencies
+RUN pip install -r requirements.txt && \
+    if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+
+# Copy application code
+COPY tutor_stack_chat /app/tutor_stack_chat
+COPY tests /app/tests
+
+# Command to run the application
 CMD ["python", "-m", "uvicorn", "tutor_stack_chat.main:app", "--host", "0.0.0.0", "--port", "8000"] 
