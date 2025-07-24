@@ -13,8 +13,8 @@ RUN pip install -r requirements.txt && \
     if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
 
 # Copy application code
-COPY tutor_stack_chat /app/tutor_stack_chat
-COPY tests /app/tests
+COPY tutor_stack_chat ./tutor_stack_chat
+COPY tests ./tests
 
 # Command to run the application
 CMD ["python", "-m", "uvicorn", "tutor_stack_chat.main:app", "--host", "0.0.0.0", "--port", "8000"] 
