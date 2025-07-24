@@ -42,3 +42,26 @@ target-version = ['py311']
 profile = "black"
 multi_line_output = 3
 line_length = 100 
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=tutor_stack_chat --cov-report=term-missing"
+filterwarnings = [
+    "ignore::PendingDeprecationWarning:starlette.*"
+]
+
+[tool.flake8]
+max-line-length = 100
+exclude = [".git", "__pycache__", ".venv", "venv", ".pytest_cache"]
+
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+exclude = [
+    "venv",
+    ".venv",
+    ".mypy_cache",
+    "__pycache__"
+]
