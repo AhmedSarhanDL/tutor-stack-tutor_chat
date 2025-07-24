@@ -51,10 +51,6 @@ filterwarnings = [
     "ignore::PendingDeprecationWarning:starlette.*"
 ]
 
-[tool.flake8]
-max-line-length = 100
-exclude = [".git", "__pycache__", ".venv", "venv", ".pytest_cache"]
-
 
 [tool.mypy]
 python_version = "3.11"
